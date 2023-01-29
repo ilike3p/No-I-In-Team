@@ -28,7 +28,7 @@ function askUser() {
         });
 }
 
-// manager info
+// mgr info
 function addManager() {
     inquirer.prompt([{
                 type: "input",
@@ -51,7 +51,7 @@ function addManager() {
                 message: "The office phone number?",
             },
         ])
-// Push manager
+// push mgr
 .then(function(data) {
     const name = data.name;
     const id = data.id;
@@ -62,7 +62,7 @@ function addManager() {
     addMember();
 });
 }
-// Add team member
+// add member of team
 function addMember() {
     inquirer.prompt([{
             type: "list",
@@ -82,5 +82,39 @@ function addMember() {
                     buildMyTeam();
                     break;
             }
+        });
+}
+// engineer profile
+function addEngineer() {
+    inquirer.prompt([{
+                type: "input",
+                name: "name",
+                message: "The engineer's name?",
+            },
+            {
+                type: "input",
+                name: "id",
+                message: "The engineer's employee ID?",
+            },
+            {
+                type: "input",
+                name: "email",
+                message: "The engineer's email address?",
+            },
+            {
+                type: "input",
+                name: "github",
+                message: "The engineer's GitHub username?",
+            },
+        ])
+        // push engineer
+        .then(function(data) {
+            let name = data.name;
+            let id = data.id;
+            let email = data.email;
+            let github = data.github;
+            let teammate = new Engineer(name, id, email, github); 
+            myTeam.push(teammate);
+            addMember();
         });
 }
