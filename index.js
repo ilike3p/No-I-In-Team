@@ -167,7 +167,7 @@ function buildMyTeam() {
                     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous" />
                     <link rel="preconnect" href="https://fonts.gstatic.com">
                     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-                    <link rel="stylesheet" href="/Users/macbookpro/Desktop/UCLA /Home-work/No-I-In-Team/No-I-In-Team/dist/Css /style.css"/>
+                    <link rel="stylesheet" href="./Css /style.css"/>
                     </head>
                     <body>
                         <div class="header"><h1>${myTeam[0]}</h1></div>
