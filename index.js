@@ -152,3 +152,56 @@ function addIntern() {
             addMember();
         });
 }
+// Page creation
+function buildMyTeam() {
+    console.log("Team profile is ready! Please check the 'dist' folder for your team page.");
+    let pageArray = [];
+    let pageHead = `<!DOCTYPE html>
+                    <html lang="en">
+                    <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                    <title>${myTeam[0]} | Team Page</title>
+                    <meta name="description" content="Learn more about the best team: ${myTeam[0]}">
+                    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous" />
+                    <link rel="preconnect" href="https://fonts.gstatic.com">
+                    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+                    <link rel="stylesheet" href="./css/style.css"/>
+                    </head>
+                    <body>
+                        <div class="header"><h1>${myTeam[0]}</h1></div>
+                        <div class="container">`;
+    pageArray.push(pageHead);
+    for (let i = 1; i < myTeam.length; i++) {
+        let object = `
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3>${myTeam[i].name}</h3>
+                                    <h4>${myTeam[i].title}</h4>
+                                </div>
+                                <div class="card-content">
+                                    <p><strong>EMAIL:</strong> <a href="mailto:${myTeam[i].email}">${myTeam[i].email}</a></p>
+                                    <p><strong>ID:</strong> ${myTeam[i].id}</p>`;
+        // add number if employee is the mgr
+        if (myTeam[i].officeNum) {
+            object += `<p><strong>OFFICE: </strong> ${myTeam[i].officeNum}</p>`;
+        }
+        // add Github if employee is the engineer
+        if (myTeam[i].github) {
+            object += `<p><strong>GITHUB: </strong> <a href="https://github.com/${myTeam[i].github}" target="_blank">${myTeam[i].github}</a></p>`;
+        }
+        // add school if employee is Intern
+        if (myTeam[i].school) {
+            object += `<p><strong>SCHOOL: </strong> ${myTeam[i].school}</p>`;
+        }
+        // end
+        object += `</div></div>`;
+        pageArray.push(object);
+    }
+    // compose pg
+    let endPage = `</div></body></html>`;
+    pageArray.push(endPage);
+    fs.writeFile(`./dist/${myTeam[0]}.html`, pageArray.join(""), function(err) {});
+}
+askUser();
