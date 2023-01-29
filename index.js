@@ -3,15 +3,15 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 
 // Employee role declaration
-const Manager = require("./library/manager");
-const Engineer = require("./library/engineer");
-const Intern = require("./library/intern");
+const Manager = require("Develop/library/Manager.js");
+const Engineer = require("Develop/library/Engineer.js");
+const Intern = require("Develop/library/Intern.js");
 let myTeam = [];
 
 // employee role declaration
-const Manager = require("./library/manager");
-const Engineer = require("./library/engineer");
-const Intern = require("./library/intern");
+const Manager = require("Develop/library/Manager.js");
+const Engineer = require("Develop/library/Engineer.js");
+const Intern = require("Develop/library/Intern.js");
 let myTeam = [];
 
 // team  initiation
@@ -167,7 +167,7 @@ function buildMyTeam() {
                     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous" />
                     <link rel="preconnect" href="https://fonts.gstatic.com">
                     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-                    <link rel="stylesheet" href="./css/style.css"/>
+                    <link rel="stylesheet" href="/Users/macbookpro/Desktop/UCLA /Home-work/No-I-In-Team/No-I-In-Team/dist/Css /style.css"/>
                     </head>
                     <body>
                         <div class="header"><h1>${myTeam[0]}</h1></div>
