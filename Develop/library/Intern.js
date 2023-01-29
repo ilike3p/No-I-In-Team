@@ -1,4 +1,4 @@
-const Intern = require("/Users/macbookpro/Desktop/UCLA /Home-work/No-I-In-Team/No-I-In-Team/Develop/library/Intern.js");
+const Intern = require("./Intern.js");
 
 test("Can set school via constructor", () => {
   const testValue = "UCLA";

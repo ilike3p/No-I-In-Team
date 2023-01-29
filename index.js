@@ -3,15 +3,15 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 
 // Employee role declaration
-const Manager = require("Develop/library/Manager.js");
-const Engineer = require("Develop/library/Engineer.js");
-const Intern = require("Develop/library/Intern.js");
+const Manager = require(".Manager");
+const Engineer = require(".Engineer");
+const Intern = require(".Intern");
 let myTeam = [];
 
 // employee role declaration
-const Manager = require("Develop/library/Manager.js");
-const Engineer = require("Develop/library/Engineer.js");
-const Intern = require("Develop/library/Intern.js");
+const Manager = require(".Manager");
+const Engineer = require(".Engineer");
+const Intern = require(".Intern");
 let myTeam = [];
 
 // team  initiation
