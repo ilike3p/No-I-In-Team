@@ -62,3 +62,25 @@ function addManager() {
     addMember();
 });
 }
+// Add team member
+function addMember() {
+    inquirer.prompt([{
+            type: "list",
+            message: "Would you like to add more team members?",
+            choices: ["Add an Engineer", "Add an Intern", "No. Complete my team!"],
+            name: "addTeamData",
+        }, ])
+        .then(function(data) {
+            switch (data.addTeamData) {
+                case "Add an Engineer":
+                    addEngineer();
+                    break;
+                case "Add an Intern":
+                    addIntern();
+                    break;
+                case "No. Complete my team!":
+                    buildMyTeam();
+                    break;
+            }
+        });
+}
