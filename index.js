@@ -27,3 +27,28 @@ function askUser() {
             addManager();
         });
 }
+
+// manager info
+function addManager() {
+    inquirer.prompt([{
+                type: "input",
+                name: "name",
+                message: "The manager's name?",
+            },
+            {
+                type: "input",
+                name: "id",
+                message: "The manager's employee ID?",
+            },
+            {
+                type: "input",
+                name: "email",
+                message: "The manager's email address?",
+            },
+            {
+                type: "input",
+                name: "officeNum",
+                message: "The office phone number?",
+            },
+        ])
+        
