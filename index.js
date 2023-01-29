@@ -118,3 +118,37 @@ function addEngineer() {
             addMember();
         });
 }
+// intern profile
+function addIntern() {
+    inquirer.prompt([{
+                type: "input",
+                name: "name",
+                message: "The intern's name?",
+            },
+            {
+                type: "input",
+                name: "id",
+                message: "The intern's employee ID?",
+            },
+            {
+                type: "input",
+                name: "email",
+                message: "The intern's email address?",
+            },
+            {
+                type: "input",
+                name: "school",
+                message: "The intern's school?",
+            },
+        ])
+        // push intern
+        .then(function(data) {
+            let name = data.name;
+            let id = data.id;
+            let email = data.email;
+            let school = data.school;
+            let teammate = new Intern(name, id, email, school);
+            myTeam.push(teammate);
+            addMember();
+        });
+}
