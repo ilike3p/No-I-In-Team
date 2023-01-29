@@ -7,3 +7,9 @@ const Manager = require("./library/manager");
 const Engineer = require("./library/engineer");
 const Intern = require("./library/intern");
 let myTeam = [];
+
+// employee role declaration
+const Manager = require("./library/manager");
+const Engineer = require("./library/engineer");
+const Intern = require("./library/intern");
+let myTeam = [];
