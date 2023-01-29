@@ -51,4 +51,14 @@ function addManager() {
                 message: "The office phone number?",
             },
         ])
-        
+// Push manager
+.then(function(data) {
+    const name = data.name;
+    const id = data.id;
+    const email = data.email;
+    const officeNum = data.officeNum;
+    const teammate = new Manager(name, id, email, officeNum);
+    myTeam.push(teammate);
+    addMember();
+});
+}
