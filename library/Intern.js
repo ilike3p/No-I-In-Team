@@ -1,19 +1,19 @@
-const Intern = require("./Intern.js");
+const Employee = require("./employee");
 
-test("Can set school via constructor", () => {
-  const testValue = "UCLA";
-  const e = new Intern("Foo", 1, "test@test.com", testValue);
-  expect(e.school).toBe(testValue);
-});
+// INTERN
+class Intern extends Employee {
+    constructor(name, id, email, school) {
+        super(name, id, email)
+        this.school = school;
+        this.title = "Intern"
 
-test("getRole() should return \"Intern\"", () => {
-  const testValue = "Intern";
-  const e = new Intern("Foo", 1, "test@test.com", "UCLA");
-  expect(e.getRole()).toBe(testValue);
-});
+    }
+    getSchool() {
+        return this.school;
 
-test("Can get school via getSchool()", () => {
-  const testValue = "UCLA";
-  const e = new Intern("Foo", 1, "test@test.com", testValue);
-  expect(e.getSchool()).toBe(testValue);
-});
+    }
+    getRole() {
+        return this.title;
+    }
+}
+module.exports = Intern
