@@ -1,20 +1,14 @@
-// Con Declaration
+// constant declaration
 const inquirer = require("inquirer");
 const fs = require("fs");
 
 // Employee role declaration
-const Manager = require(".Manager");
-const Engineer = require(".Engineer");
-const Intern = require(".Intern");
+const Manager = require("./library/manager");
+const Engineer = require("./library/engineer");
+const Intern = require("./library/intern");
 let myTeam = [];
 
-// employee role declaration
-const Manager = require(".Manager");
-const Engineer = require(".Engineer");
-const Intern = require(".Intern");
-let myTeam = [];
-
-// team  initiation
+// Team series initiation
 function askUser() {
     return inquirer.prompt([{
             type: "input",
@@ -27,8 +21,7 @@ function askUser() {
             addManager();
         });
 }
-
-// mgr info
+// Manager profile
 function addManager() {
     inquirer.prompt([{
                 type: "input",
@@ -51,18 +44,18 @@ function addManager() {
                 message: "The office phone number?",
             },
         ])
-// push mgr
-.then(function(data) {
-    const name = data.name;
-    const id = data.id;
-    const email = data.email;
-    const officeNum = data.officeNum;
-    const teammate = new Manager(name, id, email, officeNum);
-    myTeam.push(teammate);
-    addMember();
-});
+        // Push manager
+        .then(function(data) {
+            const name = data.name;
+            const id = data.id;
+            const email = data.email;
+            const officeNum = data.officeNum;
+            const teammate = new Manager(name, id, email, officeNum);
+            myTeam.push(teammate);
+            addMember();
+        });
 }
-// add member of team
+// Add team member
 function addMember() {
     inquirer.prompt([{
             type: "list",
@@ -84,7 +77,7 @@ function addMember() {
             }
         });
 }
-// engineer profile
+// Engineer profile
 function addEngineer() {
     inquirer.prompt([{
                 type: "input",
@@ -107,7 +100,7 @@ function addEngineer() {
                 message: "The engineer's GitHub username?",
             },
         ])
-        // push engineer
+        // Push Engineer
         .then(function(data) {
             let name = data.name;
             let id = data.id;
@@ -118,7 +111,7 @@ function addEngineer() {
             addMember();
         });
 }
-// intern profile
+// Intern profile
 function addIntern() {
     inquirer.prompt([{
                 type: "input",
@@ -141,7 +134,7 @@ function addIntern() {
                 message: "The intern's school?",
             },
         ])
-        // push intern
+        // Push Intern
         .then(function(data) {
             let name = data.name;
             let id = data.id;
@@ -167,7 +160,7 @@ function buildMyTeam() {
                     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous" />
                     <link rel="preconnect" href="https://fonts.gstatic.com">
                     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-                    <link rel="stylesheet" href="./Css /style.css"/>
+                    <link rel="stylesheet" href="./css/style.css"/>
                     </head>
                     <body>
                         <div class="header"><h1>${myTeam[0]}</h1></div>
@@ -183,23 +176,23 @@ function buildMyTeam() {
                                 <div class="card-content">
                                     <p><strong>EMAIL:</strong> <a href="mailto:${myTeam[i].email}">${myTeam[i].email}</a></p>
                                     <p><strong>ID:</strong> ${myTeam[i].id}</p>`;
-        // add number if employee is the mgr
+        // Add number if the employee is the Manager
         if (myTeam[i].officeNum) {
             object += `<p><strong>OFFICE: </strong> ${myTeam[i].officeNum}</p>`;
         }
-        // add Github if employee is the engineer
+        // Add Github if the employee is the Engineer
         if (myTeam[i].github) {
             object += `<p><strong>GITHUB: </strong> <a href="https://github.com/${myTeam[i].github}" target="_blank">${myTeam[i].github}</a></p>`;
         }
-        // add school if employee is Intern
+        // Add School if the employee is the Intern
         if (myTeam[i].school) {
             object += `<p><strong>SCHOOL: </strong> ${myTeam[i].school}</p>`;
         }
-        // end
+        // End
         object += `</div></div>`;
         pageArray.push(object);
     }
-    // compose pg
+    // Compose
     let endPage = `</div></body></html>`;
     pageArray.push(endPage);
     fs.writeFile(`./dist/${myTeam[0]}.html`, pageArray.join(""), function(err) {});
